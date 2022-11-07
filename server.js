@@ -11,14 +11,18 @@ fastify.register(cors, {
 });
 
 fastify.get("/", async (request, reply) => {
+  reply.header("Cache-Control", "public, max-age=600");
   return { search: "/search?q=your+query&l=10", stats: "/stats" };
 });
 
 fastify.get("/search", async (request, reply) => {
+  reply.header("Cache-Control", "public, max-age=600");
+
   const max_limit = 200;
   const default_limit = 50;
   const q = (request.query.q || "").trim();
   const l = Math.min(parseInt(request.query.l) || default_limit, max_limit);
+
   if (q.length === 0) {
     return { error: "query is empty" };
   }
