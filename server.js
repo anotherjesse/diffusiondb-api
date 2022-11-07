@@ -11,6 +11,10 @@ fastify.register(cors, {
 });
 
 fastify.get("/", async (request, reply) => {
+  return { search: "/search?q=your+query&l=10", stats: "/stats" };
+});
+
+fastify.get("/search", async (request, reply) => {
   const max_limit = 200;
   const default_limit = 50;
   const q = (request.query.q || "").trim();
