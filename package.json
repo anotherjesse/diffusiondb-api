@@ -1,0 +1,9 @@
+{
+  "name": "diffusiondb-api",
+  "dependencies": {
+    "@fastify/cors": "7",
+    "fastify": "^3.29.0",
+    "fastify-plugin": "^4.3.0",
+    "sqlite3": "^5.1.2"
+  }
+}
